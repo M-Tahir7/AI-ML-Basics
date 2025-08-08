@@ -135,9 +135,11 @@ Now imagine I send someone to the market with this instruction:
 
 📌 This represents Unsupervised Learning – where the model doesn’t get labeled data but finds patterns or groups things on its own.
 
+________________________________________
+
 Deep Learning Overview
 In deep learning, we can still apply supervised, unsupervised, or reinforcement learning, but the difference is that the model is trained using artificial neurons.
-________________________________________
+
 What is a Neuron?
 A neuron in deep learning is a mathematical function.
 For example, one simple function is the Relu neuron (max function):
@@ -150,9 +152,8 @@ Just like the human brain has billions of interconnected neurons that make decis
 This arrangement of neurons can have different architectures depending on the problem.
 ________________________________________
 Data in ML vs. DL
-•	Machine Learning (ML) usually works well with structured data (tables, rows, columns).
-If we give ML very large datasets, it may still struggle because it doesn’t automatically learn complex patterns in unstructured data.
-•	Deep Learning (DL) can work with both structured and unstructured data(Text , Image , Voice:
+•	Machine Learning (ML) works well with structured data (tables, rows, columns).
+•	Deep Learning (DL) can work with both structured and unstructured data(Text , Image , Voice):
 o	Text → becomes Natural Language Processing (NLP)
 o	Images → becomes Computer Vision
 o	Voice/Speech → becomes Speech Recognition
