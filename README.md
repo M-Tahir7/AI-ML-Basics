@@ -280,6 +280,8 @@ ________________________________________
     Cosine schedule → add blur slowly at first, faster in the middle, then slow down again — giving a smoother transformation.
     It uses a cosine-shaped curve for adding noise
 
+________________________________________
+
 5. Latent Diffusion Components
 Autoencoder → Compresses image into a smaller latent space.
 
@@ -289,10 +291,14 @@ Text Autoencoder → Encodes the prompt into embeddings.
 
 Guided Noise Removal → The process of removing noise in a controlled sequence.
 
+________________________________________
+
 6. Embeddings
 Embeddings = Numerical representation of text prompts (meaning is stored as numbers).
 
 The model uses embeddings to understand what the prompt means and guide image creation.
+
+
 
 
 
