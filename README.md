@@ -229,8 +229,70 @@ Example: “Return the code inside a single Python code block.”
 
 ________________________________________
 
+LLMs vs Diffusion Models
+________________________________________
 
+1. LLMs (Large Language Models)
+LLMs are actually Transformers — a type of neural network architecture.
 
+You get better results when you give clear, step-by-step prompts.
+
+Adding emotional touch in prompts can improve the quality of generated content.
+
+________________________________________
+
+2. Diffusion Models
+Diffusion models generate images based on text prompts.
+
+Example: Stable Diffusion (comes under Computer Vision).
+
+You can sell generated images, but success depends on good prompt writing.
+
+Negative Prompts → Used to exclude unwanted elements from the image.
+
+They are computationally expensive, so latent representation is used:
+
+Instead of representing an image with millions of numbers (pixels), it’s represented with fewer (e.g., 1,000) numbers.
+
+This makes training faster and more efficient.
+
+________________________________________
+
+3. Noise in Diffusion Models
+   
+Noise = Random variation added to the image data (like static on TV).
+
+The model is trained to remove noise and recover the real image.
+
+Forward process: Gradually add noise to an image over time.
+
+Backward process: Gradually remove noise to reconstruct the image.
+
+Example: Drawing too many lines on a picture, then removing them step-by-step until the original image appears.
+
+________________________________________
+
+4. Two Ways to Add/Remove Noise
+  1) Equal step noise addition → Add equal noise at each step, then remove it.
+
+  2)Cosine similarity noise → Uses a cosine schedule for adding noise.
+    (Forward process and Reverse process)
+    Cosine schedule → add blur slowly at first, faster in the middle, then slow down again — giving a smoother transformation.
+    It uses a cosine-shaped curve for adding noise
+
+5. Latent Diffusion Components
+Autoencoder → Compresses image into a smaller latent space.
+
+U-Net → Learns to remove noise.
+
+Text Autoencoder → Encodes the prompt into embeddings.
+
+Guided Noise Removal → The process of removing noise in a controlled sequence.
+
+6. Embeddings
+Embeddings = Numerical representation of text prompts (meaning is stored as numbers).
+
+The model uses embeddings to understand what the prompt means and guide image creation.
 
 
 
