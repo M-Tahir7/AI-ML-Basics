@@ -158,6 +158,77 @@ o	Text → becomes Natural Language Processing (NLP)
 o	Images → becomes Computer Vision
 o	Voice/Speech → becomes Speech Recognition
 
+________________________________________
+
+Discriminative AI vs Generative AI
+1. Discriminative AI
+•	Definition:
+Focuses on distinguishing between different classes or categories.
+It learns patterns in data to decide “What class does this belong to?”
+•	Goal: Classification or prediction.
+•	Example:
+o	Email spam detection (Spam or Not Spam)
+o	Image classification (Cat or Dog)
+________________________________________
+2. Generative AI
+•	Definition:
+Focuses on creating new data that resembles the original data.
+It may use discriminative AI techniques internally to understand patterns, but its main goal is generation, not classification.
+•	Example:
+o	ChatGPT writing an essay
+o	 Creating Ghibli image from text
+o	AI making new music
+
+________________________________________
+
+In deep learning, the word deep comes from the depth of the neural network, meaning:
+•	We don’t just have one or two layers of neurons (like in simple neural networks)
+•	Instead, we have many hidden layers between the input and output layers.
+•	More layers = more neurons = the model can learn more complex patterns.
+So, “deep” is about layer depth
+For example:
+•	Shallow Neural Network → 1–2 hidden layers
+•	Deep Neural Network → 3+ hidden layers (can go into hundreds in big architectures like ResNet, GPT, etc.)
+
+________________________________________
+
+Generative AI & LLMs
+Generative AI uses certain aspects of Discriminative AI (pattern recognition) but goes further — it creates new information such as text, images, or audio.
+For text data, two important model families are:
+1.	LLMs (Large Language Models)
+2.	Diffusion Models (e.g., Latent Diffusion Models for image generation)
+Both can use special neural network architectures like GPT (Generative Pre-trained Transformer) — these have billions of parameters (like artificial neurons) working together.
+
+________________________________________
+
+Tokenization in LLMs
+•	LLMs don’t directly understand raw text; they break text into tokens (small chunks like words or sub-words).
+•	Example: "I’m learning AI" → [ "I", "’m", " learning", " AI" ]
+•	GPT understands a fixed vocabulary (e.g., ~50,000 tokens it has learned during training).
+•	If a token is out of vocabulary, the model won’t interpret it correctly.
+•	Context Window = the maximum number of tokens the LLM can process at once.
+o	GPT-3.5 → ~4k tokens
+o	GPT-4 → 8k–32k tokens (depending on version)
+
+________________________________________
+
+Prompt Engineering Steps
+To get the best results from an LLM, your prompt should include:
+•  Simulate Persona → Define the role the model should take.
+Example: “You are an expert Python developer.”
+•  Task → Clearly state what you want the model to do.
+Example: “Write a function to reverse a string.”
+•  Steps → Explain how to approach the problem (break it into parts).
+Example: “First, take input from the user, then reverse it, and finally print the result.”
+•  Context / Constraints → Give boundaries or rules for the answer.
+Example: “Do not use built-in reverse functions; only use loops.”
+•  Goal → Describe the desired outcome.
+Example: “The program should work for any string entered by the user.”
+•  Output Format → Tell how you want the results presented.
+Example: “Return the code inside a single Python code block.”
+
+________________________________________
+
 
 
 
