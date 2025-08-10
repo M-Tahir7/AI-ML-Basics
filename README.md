@@ -340,11 +340,69 @@ def sentiment_analysis(text):
     )
     
     return response.choices[0].message['content']
-
-result = sentiment_analysis("I hate you.")
-print("Sentiment:", result)
+    result = sentiment_analysis("I hate you.")
+    print("Sentiment:", result)
 
 ________________________________________
+
+🖼 DALL·E, CLIP & Diffusion Models
+
+DALL·E and DALL·E 3 are AI models for generating images from text prompts.
+
+They are built on diffusion models, which create images step-by-step from random noise, refining them until the final picture appears.
+
+DALL·E uses CLIP (Contrastive Language–Image Pre-training) technology.
+
+Text Encoder → Converts the text prompt into a vector.
+
+Image Encoder → Converts images into vectors.
+
+These vectors are compared for similarity, ensuring the generated image matches the text.
+
+Once the text–image relationship is established, a diffusion-based decoder generates the image.
+________________________________________
+
+📦 Pipeline: 
+
+A pipeline is just a sequence of steps to process data.
+
+Think of ordering a pizza:
+
+Choose toppings
+
+Bake the pizza
+
+Deliver it
+
+In AI, the pipeline processes data step-by-step, e.g., text → vector → model processing → output.
+
+________________________________________
+
+🔢 Tensors:
+
+A tensor is basically a multi-dimensional matrix used to store data (numbers) in deep learning.
+
+1D tensor = vector, 2D tensor = matrix, higher dimensions store more complex data (like images or videos).
+
+________________________________________
+
+🤗 Hugging Face:
+
+Hugging Face is a platform with thousands of ready-to-use AI models.
+
+You can find models for:
+
+Text summarization
+
+Translation
+
+Sentiment analysis
+
+Image generation
+
+And many more
+
+Always check the model size before loading in notebook — large models can crash your notebook if they exceed memory limits.
 
 
 
