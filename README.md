@@ -328,7 +328,6 @@ def sentiment_analysis(text):
         {"role": "system", "content": "You are a sentiment analysis assistant."},
         {"role": "user", "content": f"Analyze the sentiment of this text: {text}"}
     ]
-    
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=messages,
