@@ -298,7 +298,50 @@ Embeddings = Numerical representation of text prompts (meaning is stored as numb
 
 The model uses embeddings to understand what the prompt means and guide image creation.
 
+________________________________________
 
+1) API as a Waiter: 
+•	Customer (You) → Makes a request (like ordering food).
+•	Waiter (API) → Takes your request and delivers it to the Kitchen (Server).
+•	Kitchen → Prepares the food (processes the data or performs the required operation).
+•	Waiter (API) → Brings the food (response) back to you.
+•	Key point: You don’t know (or need to know) how the kitchen works — only how to place the order correctly.
+
+________________________________________
+
+2️) Example with Google Search
+•	When you type something into Google and hit Search, your browser is sending a request to Google’s Search API.
+•	The API sends your query to Google’s servers, fetches relevant results, and sends them back.
+•	You just see the results; you don’t see the inner algorithms, databases, or processing steps.
+
+________________________________________
+
+CODE OF SENTIMENT ANALYSIS
+
+import openai
+
+# Replace with your actual key
+openai.api_key = "sk-your_real_api_key_here"
+
+def sentiment_analysis(text):
+    messages = [
+        {"role": "system", "content": "You are a sentiment analysis assistant."},
+        {"role": "user", "content": f"Analyze the sentiment of this text: {text}"}
+    ]
+    
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=messages,
+        max_tokens=50,
+        temperature=0
+    )
+    
+    return response.choices[0].message['content']
+
+result = sentiment_analysis("I hate you.")
+print("Sentiment:", result)
+
+________________________________________
 
 
 
