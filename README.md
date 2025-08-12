@@ -1122,8 +1122,250 @@ Complex to understand and implement.
 
 ________________________________________
 
+Hyper-Parameters in Deep Learning:-
+
+________________________________________
+
+1. Learning Rate
+   
+Meaning: Controls how quickly the model learns. It’s the step size taken during optimization to minimize the loss function.
+
+Relation to Loss:
+
+The more incorrect predictions the model makes, the higher the loss.
+
+To minimize loss, we use Gradient Descent — an optimization algorithm that updates parameters to move toward the global minima (the point where loss is smallest).
+
+Effect of Learning Rate:
+
+Too low → Model learns very slowly, requiring more computation time.
+
+Too high → Model might overshoot and never reach the global minima.
+
+Goal: Choose a learning rate that balances speed and stability.
+
+________________________________________
 
 
+2. Batch Size:-
+   
+Meaning: The number of training examples processed in one forward/backward pass.
+
+Why not use the whole dataset at once?
+
+Large datasets may not fit into memory.
+
+Training on smaller batches allows more frequent parameter updates.
+
+Note: There’s no single “best” batch size — it depends on the dataset, model, and available hardware.
+
+________________________________________
+
+
+3. Number of Epochs
+Meaning: The number of times the model sees the entire training dataset during training.
+
+Process:
+
+After each epoch, the model’s parameters are updated.
+
+Gradient Descent moves toward minimizing the loss (towards the global minima) with each update.
+
+Tip: Too few epochs → underfitting; too many epochs → overfitting.
+
+________________________________________
+
+Deep Learning Overview
+Deep Learning (DL) is a subdomain of Machine Learning (ML).
+
+In neural networks, we have many layers of neurons that learn patterns in data.
+
+Applications:
+
+NLP (Natural Language Processing)
+
+CV (Computer Vision)
+
+Types of architectures:
+
+Fully Connected Neural Networks (FCNNs)
+
+Encoders/Decoders (used in seq-to-seq, transformers, etc.)
+
+Frameworks: TensorFlow, PyTorch.
+
+________________________________________
+
+Large Language Models (LLMs)
+LLMs are a type of AI that can organize and generate text (and other tasks like reasoning, translation, code generation).
+
+They are trained on huge datasets.
+
+They use the Transformer architecture.
+
+RAG (Retrieval-Augmented Generation)
+Purpose: Retrieve relevant information from external sources and combine it with generation.
+
+Example: You ask a question from a book → the system retrieves relevant sections → joins them in the correct order → generates the final answer.
+
+The retrieval step ensures the model has updated and domain-specific information.
+
+________________________________________
+
+How Neural Networks Work
+Two main things happen:
+
+Prediction (Forward Propagation)
+
+Input enters the input layer
+
+Passes through hidden layers (transformations occur)
+
+Reaches the output layer
+
+Loss function compares predictions with actual labels.
+
+Training (Backward Propagation)
+
+Starts from the loss function at the output layer.
+
+Goes backward, adjusting weights to reduce loss.
+
+Uses Gradient Descent to find optimal weights.
+
+This cycle repeats until the model can make better predictions.
+
+________________________________________
+
+Limitations of ANN / Simple Neural Networks / Fully Connected Neural Networks (FCNNs)
+Too many connections for large inputs
+
+In FCNNs, every neuron in one layer is connected to every neuron in the next layer.
+
+For images, the input is a huge array of numbers (pixels).
+
+Example:
+
+Greyscale image (single channel): 1000 × 100 → 100,000 pixels.
+
+Colored image (3 channels): 1000 × 100 × 3 → 300,000 values.
+
+. Greyscale Image Example
+Dimensions: 1000 × 100
+
+1000 → height (rows of pixels)
+
+100 → width (columns of pixels)
+
+Since it's grayscale, each pixel has 1 value.
+
+📌 Total pixels = height × width = 1000 × 100 = 100,000 pixels
+
+Each pixel stores 1 value → 100,000 values total.
+
+3. Colored Image Example (RGB)
+Dimensions: 1000 × 100 × 3
+
+1000 → height
+
+100 → width
+
+3 → color channels (Red, Green, Blue).
+
+📌 Total pixel values = height × width × channels = 1000 × 100 × 3
+= 300,000 values.
+
+Here’s why:
+
+For each pixel, you need 3 numbers (e.g., R=150, G=200, B=50).
+
+So colored images store 3 times more data than grayscale.
+
+________________________________________
+
+
+Why CNN is Better for Image Classification:-
+
+1. Images as Data
+Greyscale image (single channel):
+Size = width × height = 1000 × 100 = 100,000 pixels.
+
+Colored image (3 channels):
+Size = width × height × channels = 1000 × 100 × 3 = 300,000 values.
+
+In a simple ANN, each neuron in one layer connects to every neuron in the next layer → huge number of weights → very slow and inefficient for large images.
+
+2. Features in Images
+Images contain features:
+Edges, textures, shapes, faces, tails, noses, ears, etc.
+
+CNN’s job: automatically detect and learn these features.
+
+________________________________________
+
+3. Main Components of CNN:-
+   
+Convolutional Layer
+
+Uses filters (kernels) to detect features like edges, curves, shapes.
+
+Example:
+
+Vertical edge detector → detects vertical lines.
+
+Horizontal edge detector → detects horizontal lines.
+
+Why called "convolutional"?
+Because it applies the convolution operation (small matrix over a large image to extract features). The term was already used in image processing software like Photoshop.
+
+Convolutional Operation
+
+A small matrix (filter) slides over the large image matrix.
+
+At each position → multiply element-wise and sum → result stored in feature map.
+
+Pooling Layer (Downsampling)
+
+Removes unnecessary information.
+
+Summarizes feature maps (e.g., Max Pooling keeps only the strongest feature in a region).
+
+Flatten Layer
+
+Converts the 2D feature maps into a 1D vector before sending it to fully connected layers.
+
+Fully Connected Layers (FC Layers)
+
+Also called the "head" of the network.
+
+Performs the final classification based on extracted features.
+
+________________________________________
+
+4. How CNN Layers Learn Complex Patterns
+First layer → learns simple features (straight lines, curves, edges).
+
+Second layer → combines simple features to detect more complex shapes (corners, small patterns).
+
+Third layer → combines complex shapes into objects (e.g., multiple squares → cube → book).
+
+Deeper layers → learn high-level, abstract features sufficient for classification.
+
+________________________________________
+
+Summary Flow:
+
+Convolutional layer → detects features.
+
+Pooling layer → summarizes and reduces data.
+
+Repeat multiple convolution + pooling steps → deeper features.
+
+Flatten layer → converts to vector.
+
+Fully connected layers → classification.
+
+________________________________________
 
 
 
