@@ -933,6 +933,197 @@ F1-score = 2 × (Precision × Recall) / (Precision + Recall)
 
 ________________________________________
 
+Conventional ML vs. Deep Learning
+
+________________________________________
+
+Limitations of Conventional Machine Learning:-
+
+High-dimensional data → Performance often drops without dimensionality reduction.
+
+Unstructured data (images, audio, text) → Conventional ML struggles because it can only handle a certain level of complexity.
+
+Manual feature extraction is required before training.
+
+________________________________________
+
+Deep Learning as a Solution
+Works directly with unstructured data (images, videos, audio, text).
+
+Automatic feature extraction — no need for manual engineering.
+
+Can handle very large datasets (unlimited in theory).
+
+Performs parallel computation efficiently.
+
+Has higher capacity to learn complex patterns compared to conventional ML.
+
+Shallow vs. Deep Neural Networks
+
+Shallow Neural Network → 1–2 hidden layers.
+
+Deep Neural Network → 3 or more hidden layers.
+
+________________________________________
+
+Requirements for Deep Learning:-
+
+Data
+
+Computation power (e.g., GPUs/TPUs)
+
+Algorithms
+
+________________________________________
+
+Types of Neural Networks:-
+
+1. Feedforward Neural Networks (FNNs)
+Description: Data flows in one direction — from input to output.
+
+Advantages:
+
+Works well for straightforward problems like classification.
+
+Faster to train compared to complex architectures.
+
+Disadvantages:
+
+Cannot handle time-dependent or sequential data.
+
+Does not remember past information.
+
+The past information means
+
+Example:
+If given:
+
+"Ali went to the market."
+
+"He bought apples."
+
+The network treats both sentences independently and doesn’t connect “He” to “Ali.”
+
+________________________________________
+
+2. Convolutional Neural Networks (CNNs)
+Specialized for: Images, videos, and spatial data (location, arrangement, patterns).
+
+Advantages:
+
+Detects features like edges, shapes, and patterns using filters.
+
+Works well with large visual datasets.
+
+Disadvantages:
+
+Needs a lot of training data.
+
+Requires powerful hardware (GPUs).
+
+Not suitable for time-series data (e.g., stock prices).
+
+________________________________________
+
+3. Recurrent Neural Networks (RNNs)
+Specialized for: Time-series and sequential data.
+
+Description: Uses loops to remember past information.
+
+Advantages:
+
+Good for problems where order matters.
+
+Disadvantages:
+
+Training is slower and harder.
+
+Struggles with very long sequences.
+
+Example of sequences:
+
+Short sequence → A sentence or a week of stock prices.
+
+Long sequence → A book or 10 years of stock prices.
+
+________________________________________
+
+4. Long Short-Term Memory Networks (LSTMs):-
+   
+Type: Special RNN designed to solve the forgetting problem (RNNs lose earlier information in long sequences).
+
+Advantages:
+
+Handles long sequences better than RNNs.
+
+Good for translation, speech recognition, and time-series prediction.
+
+Disadvantages:
+
+More complex and slower to train.
+
+Requires more computational power.
+
+________________________________________
+
+5. Generative Adversarial Networks (GANs)
+   
+Description: Two networks compete — one generates fake data, the other tries to detect if it’s fake or real.
+
+Advantages:
+
+Creates realistic images, videos, and audio.
+
+Useful for data augmentation when data is limited.
+
+Disadvantages:
+
+Training is tricky and unstable.
+
+Can be misused to create fake content.
+
+6. Radial Basis Function Networks (RBFNs):-
+
+   ________________________________________
+   
+Description: Uses radial basis functions as activation functions.
+
+Applications: Classification and regression.
+
+Advantages:
+
+Simple and effective for smaller datasets.
+
+Can model non-linear data.
+
+Disadvantages:
+
+Not as powerful as deep networks for complex patterns.
+
+Struggles with very large datasets.
+
+7. Transformer Networks
+
+   ________________________________________
+   
+Specialized for: Text, language models, and sequences.
+
+Advantages:
+
+Excellent for chatbots, translation, and large language models.
+
+Can handle very long sequences without forgetting.
+
+Disadvantages:
+
+Needs huge amounts of data and computing power.
+
+Complex to understand and implement.
+
+________________________________________
+
+
+
 
 
 
