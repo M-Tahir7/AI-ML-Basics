@@ -1367,6 +1367,145 @@ Fully connected layers → classification.
 
 ________________________________________
 
+1. Strides
+Definition: Number of pixels (rows/columns) the filter moves in each step.
+
+Example:
+
+Stride = 1 → moves 1 pixel right, 1 pixel down.
+
+Stride = 2 → moves 2 pixels right, 2 pixels down → reduces feature map size faster.
+
+Effect: Larger stride = smaller output feature map.
+
+________________________________________
+
+2. Padding
+Purpose: Prevent feature map size from shrinking too much and help preserve border features.
+
+Types:
+
+Zero Padding: Add zeros around the border.
+
+Same Padding: Adds just enough padding so that output size = input size (when stride = 1).
+
+Valid Padding: No padding → feature map shrinks.
+
+Note: Padding values are not always zeros—sometimes “reflect” or “replicate” padding is used.
+
+________________________________________
+
+3. Volume Convolution (RGB images)
+RGB image = Height × Width × Depth (Depth = 3 channels).
+
+Filters also have depth = 3 so they can process all channels at once.
+
+Depth of CNN layer = number of filters → each filter produces one feature map.
+
+Example: If you have 32 filters, output depth = 32.
+
+________________________________________
+
+4. Pooling
+Purpose: Reduce spatial dimensions (Height, Width) while keeping important information.
+
+Types:
+
+Max Pooling: Keeps only the largest value in each region.
+
+Average Pooling: Takes the mean of values in each region.
+
+Advantages of Max Pooling:
+
+Keeps the strongest features (feature retention).
+
+Translation invariance → detects features even if shifted.
+
+Reduces computation and risk of overfitting.
+
+________________________________________
+
+Autoencoders – Summary Notes
+1. Why Autoencoders?
+In CNNs, max pooling is used to reduce size and remove redundant info.
+
+If data has no redundancy, pooling may cause information loss.
+
+For cases where we still want compression without losing essential information, we use Autoencoders.
+
+2. Definition
+Autoencoder is a special type of neural network that:
+
+Takes an input.
+
+Compresses it into a latent (compressed) representation.
+
+Reconstructs the same input from that representation.
+
+In math terms: Output ≈ Input (identity function).
+
+3. Example
+Input image size: 28 × 28 × 1 → 784 pixels.
+
+Encoder compresses 784 numbers → 32 numbers.
+
+Decoder takes 32 numbers → reconstructs the original 28×28 image.
+
+4. Components
+Encoder – Compresses input to a latent vector.
+
+Detects important features.
+
+Reduces size step-by-step using Convolution + Pooling.
+
+Latent Representation – The compressed form of the input.
+
+Decoder – Reconstructs the input from latent representation.
+
+Uses Upsampling / Unpooling / Deconvolution.
+
+5. Training Goal
+Train the network so that:
+
+Reconstructed Output
+≈
+Original Input
+Reconstructed Output≈Original Input
+Once trained:
+
+Encoder can be used alone for feature extraction / compression.
+
+Decoder can be used alone for generation.
+
+6. Workflow
+Encoder:
+Input → Convolutional layers (feature detection) → Pooling (reduce size) → Flatten → Fully connected layers → Latent vector.
+
+Decoder:
+Latent vector → Fully connected layers → Reshape → Deconvolution → Unpooling/Upsampling → Output image.
+
+7. Key Terms
+Latent Vector / Latent Space → Compressed feature representation.
+
+Upsampling / Unpooling → Expanding the compressed representation back into the original image dimensions.
+
+Deconvolution (Transposed Convolution) → Opposite of convolution, used for reconstruction.
+
+________________________________________
+
+| Use Case | Recommended Autoencoder Type | Architecture Changes | Loss Function Changes |
+|----------|-----------------------------|----------------------|-----------------------|
+| Dimensionality Reduction | Vanilla / Sparse Autoencoder | Fully connected layers, small latent space, optional sparsity constraint | Mean Squared Error (MSE) |
+| Anomaly Detection | Vanilla / Sparse Autoencoder | Small latent space, enforce sparsity, regularization to avoid overfitting | MSE; set anomaly threshold based on reconstruction error |
+| Image Denoising | Denoising Convolutional Autoencoder | CNN layers, Dropout, input with noise and clean target output | MSE or Structural Similarity Index (SSIM) |
+| Image Colorization | Convolutional Autoencoder | CNN encoder-decoder, grayscale input → RGB output | MSE + Perceptual Loss |
+| Image Super-Resolution | Convolutional Autoencoder (U-Net style) | CNN layers with skip connections for high-frequency detail | MSE + Perceptual Loss |
+| Data Compression | Vanilla Autoencoder | Fully connected or CNN layers depending on data type | MSE |
+| Feature Extraction | Sparse / Stacked Autoencoder | Bottleneck layer for compact features, possible stacking of multiple AEs | MSE (focus on encoder’s output) |
+| Generative Modeling | Variational Autoencoder (VAE) | Probabilistic latent space, reparameterization trick | KL Divergence + MSE (or cross-entropy) |
+| Text / Time-Series Compression | Sequence-to-Sequence Autoencoder (LSTM/GRU) | RNN/LSTM encoder-decoder, attention mechanism for long sequences | Cross-Entropy Loss |
+| Robust Feature Learning | Contractive Autoencoder | Add contractive penalty to encoder gradients | MSE + Contractive Penalty |
+
 
 
 
