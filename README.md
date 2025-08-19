@@ -2062,6 +2062,8 @@ Selects chunks that are both relevant and diverse.
 
 Removes redundancy and ensures only unique + useful chunks are retrieved.
 
+we use filters here
+
 Good for concise answers.
 
 Example:
@@ -2113,6 +2115,68 @@ SVM = supervised retrieval (less common now).
 
 ⚡ So when you need all information → use Semantic Search.
 ⚡ When you need concise & non-redundant info → use MMR.
+
+
+LLMs & Model Sizes
+LLM = Large Language Model → works like a brain (analyzes + generates text).
+
+Different models → have different context windows (how much text they can read/remember at once).
+
+GPT-4: very powerful, big context, but expensive.
+
+GPT-4-mini: lightweight, cheaper, faster, good when we only need analysis power, not very large memory.
+→ In RAG systems, we only need the relevant chunk of info, so using smaller models is efficient.
+
+RAG (Retrieval Augmented Generation)
+RAG = Retrieve only important info from database → give it to LLM for answer.
+
+No need to send huge datasets, only query-related info.
+
+Hence, small + fast model (GPT-4 mini) works better.
+
+Chains in LangChain
+Chains = connect multiple steps/components together to make workflows (e.g., chatbot).
+
+LCEL (LangChain Expression Language) Chains → allow building custom chatbots with flexibility.
+
+Chain Calling Methods
+Stream → executes chain block by block (good for live responses).
+
+Invoke → executes the entire chain at once.
+
+Batch → for multiple inputs together (efficient for bulk queries).
+
+Runnable Types
+Runnable Sequence:
+
+Steps run in sequence (output of one = input of next).
+
+Example: query → retrieve → summarize → format answer.
+
+Runnable Parallel:
+
+Steps run together (no dependency between outputs).
+
+Example: translate → sentiment analysis → classification all at once.
+
+Prompt Engineering
+Prompt Template: Used to insert variables/chunks dynamically into prompts.
+Example: "Answer the question: {question}".
+
+Few-shot Prompt Template: Give examples / roles so the model understands how to act.
+
+Utility Tools
+ItemGetter: extract specific values from a dictionary (like name, email).
+
+Output Parsers: convert LLM output into specific formats:
+
+JSON
+
+Dictionary
+
+Structured response
+
+Multiple parsers can be combined (validation + formatting).
 
 
 
